@@ -18,7 +18,7 @@ some subtle intricacies are provided.
 
 # Technology
 
-I wrote some CLojure code to run a presentation powered by
+I wrote some Clojure code to run a presentation powered by
 [reveal.js](https://github.com/hakimel/reveal.js/) from a
 [ring](https://github.com/ring-clojure/ring/) web-server.  While it
 was fun writing it and it is a new idea at least for me, it was not
