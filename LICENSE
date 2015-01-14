@@ -1,0 +1,11 @@
+The code in the src/ directory is published under the Eclipse Public
+License.  This covers the code to create and run the presentation as
+well as the code presented.
+
+For the images, please see the credits in the presentation itself.
+Basically, they are not free to use.
+
+This project also contains code from reveal.js and associated
+projects.  Please see https://github.com/hakimel/reveal.js/
+
+
