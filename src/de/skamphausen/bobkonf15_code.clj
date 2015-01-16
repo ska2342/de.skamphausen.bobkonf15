@@ -97,9 +97,33 @@
       (dosync (alter r inc))) 
     :done))
 
+;;:stresstestrun
 (stresstest 0 10)
 (stresstest 0 30)
 (stresstest 15 30)
+
+
+
+
+
+;; spoiler...
+
+
+
+
+
+
+(stresstest 0 10)
+:done
+ref ist: 500 history: 10 nach: 27 Versuchen
+
+(stresstest 0 30)
+ref ist: 409 history: 20 nach: 21 Versuchen
+:done
+
+(stresstest 15 30)
+ref ist: 97 history: 19 nach: 5 Versuchen
+:done
 
 ;;:ignorethissection
 )

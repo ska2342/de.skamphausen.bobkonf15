@@ -294,6 +294,10 @@ einen Satz zu gewinnen\""])
   [:h2 "Entwicklung der Historie einer Ref"]
   (code :stresstest))
 
+(defslide s-history-run
+  [:h2 "Entwicklung der Historie einer Ref"]
+  (code :stresstestrun))
+
 (defslide s-summary
   [:h2 "Try"]
   (he/unordered-list
@@ -320,14 +324,13 @@ mehreren Zuständen"
            "sagt"))]))
 
 (defslide s-end
-  [:h2 "Finally"
+  [:h2 "Finally"]
    (he/unordered-list
     ["https://github.com/ska2342/de.skamphausen.bobkonf15"
      "http://clojure.org/state"
      "@stka23"
      "http://www.clojure-buch.de/ (Das komplette Buch auch online)"
-     "Bis morgen auf der :clojureD"
-     "http://www.clojured.de/"])])
+     "Bis morgen auf der :clojureD http://www.clojured.de/"]))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Putting it all together and deliver it
 (defn slides []
@@ -360,7 +363,8 @@ mehreren Zuständen"
    (chapter "Fallstricke"
             (s-ouch)
             (s-history)
-            (s-history-code))
+            (s-history-code)
+            (s-history-run))
    (chapter "Fazit"
             (s-summary)
             (s-summary-but)
