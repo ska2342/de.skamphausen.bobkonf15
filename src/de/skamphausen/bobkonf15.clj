@@ -191,7 +191,7 @@ einen Satz zu gewinnen\""])
     "Indirekte Referenz"
     "Leicht atomar zu ändern"
     "long Atomar?"
-    "Atom, Ref, Val, Agent"
+    "Atom, Ref, Var, Agent"
     "Dereferenzieren"])
   (he/image "img/iref.png"))
 
@@ -201,7 +201,7 @@ einen Satz zu gewinnen\""])
    ["Einfachster Referenztyp"
     [:code "java.util.concurrent.atomic.AtomicReference"]
     "Zustand ist auch ein Wert: Neue Werte werden berechnet, nicht
-  gesetzt"
+  gesetzt (CAS)"
     (list "Berechnung mit " [:code "swap!"])
     "Update-Funktionen ohne Seiteneffekte wegen Wiederholungen"
     (list [:code "deref"] ", Read-Syntax: " [:code "@"])])
@@ -210,7 +210,7 @@ einen Satz zu gewinnen\""])
 (defslide s-ref
   [:h2 "Referenztyp Ref"]
   (he/unordered-list
-   ["Ähnlich Atoms, koordiniert aber Änderungen an mehreren Refs"
+   ["Ähnlich Atom, koordiniert aber Änderungen an mehreren Refs"
     "STM"
     "Lesen immer möglich"
     "Schreiben nur mit Transaktion"
@@ -250,7 +250,7 @@ einen Satz zu gewinnen\""])
 
 (defslide s-transaction 
   [:h2 "Ablauf einer Transaktion"]
-  (he/image "img/stm.png"))
+  (he/image "img/stm2.png"))
 
 (defslide s-reftest
   [:h2 "Wiederholungen im Body"]

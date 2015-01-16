@@ -25,7 +25,7 @@
 
 ;;:ref-basics
 (def eine-ref (ref 1))
-(alter eine-ref inc)
+(alter eine-ref inc) ; bumm!
 (dosync (alter eine-ref inc))
 (deref eine-ref)
 (dosync (alter eine-ref + 5))
@@ -44,12 +44,12 @@
 (defn dec-mit-zaehl [value]
   (swap! kollisionen inc)
   (dec value))
-;; Die Transaktions
+;; Die Transaktionsfunktion
 (defn stm-funktion []
   (dosync
    (alter hochzaehler   inc-mit-zaehl)
    (alter runterzaehler dec-mit-zaehl)))
-;; Erzeuge 100 Thread Objekte (Runnable, Callable)
+;; Erzeuge 100 Thread Objekte (Interop, Runnable, Callable)
 (dotimes [_ 100]
   (.start (new Thread stm-funktion)))
 ;; Ergebnisse
