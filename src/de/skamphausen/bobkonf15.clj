@@ -269,7 +269,6 @@ einen Satz zu gewinnen\""])
   [:h2 "Häufige Probleme"]
   (he/unordered-list
    ["Ein neues Programmierkonstrukt -> neue Probleme"
-    (list "Zufallszahlengenerator " [:code "rand-int"])
     "Write Skew: Kann einzelne Refs validieren, aber nicht das
   Ensemble"
     "Verschiedene Geschwindigkeiten von Transaktionen"
