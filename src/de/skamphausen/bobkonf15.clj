@@ -101,7 +101,7 @@
     "Clojure Logo (c) Tom Hickey"
     "Acrolinx logo (c) Acrolinx GmbH, mit Erlaubnis verwendet"
     "Buchdeckel (c) 2009-2015 Stefan Kamphausen und dpunkt.verlag"
-    "Alle Abbilungen (c) 2009-2015 Stefan Kamphausen"]))
+    "Alle Abbilungen (c) 2009-2015 Stefan Kamphausen"])) ;; Tippfehler: Abbildungen
 
 (defslide s-clojure
   [:h2 "Clojure"]
@@ -116,7 +116,7 @@
   (he/unordered-list
    ["Nur eines der Features in Bezug auf Nebenläufigkeit"
     "Locking ist komplex"
-    "Transaktionen wie in DB nun in Speicher"
+    "Transaktionen wie in DB nun in Speicher" ;; Tippfehler: "nur"
     "Vergleich GC zu seiner Zeit, STM heute"
     (he/link-to 
      "http://joeduffyblog.com/2010/01/03/a-brief-retrospective-on-transactional-memory/"
