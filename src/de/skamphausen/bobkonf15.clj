@@ -328,6 +328,7 @@ mehreren Zuständen"
    (he/unordered-list
     ["https://github.com/ska2342/de.skamphausen.bobkonf15"
      "http://clojure.org/state"
+     "http://blog.glenjamin.co.uk/names-values-identities-states-and-time"
      "@stka23"
      "http://www.clojure-buch.de/ (Das komplette Buch auch online)"
      "Bis morgen auf der :clojureD http://www.clojured.de/"]))
