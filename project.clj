@@ -1,5 +1,5 @@
-(defproject de.skamphausen.bobkonf15 "0.1.0-SNAPSHOT"
-  :description "Talk for BOB Konference in Berlin, January 2015"
+(defproject de.skamphausen.bobkonf15 "1.0"
+  :description "Talk für die BOB Konferenz in Berlin, Januar 2015"
   :url "https://github.com/ska2342/de.skamphausen.bobkonf15"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
