@@ -11,11 +11,14 @@
 ;;:identity
 (def gruendungsjahr-fsfe)
 (def einfuehrungsjahr-11-punkte-saetze)
+(def tt-satz-gewinn-punkte)
 
 ;;:state
 (def gruendungsjahr-fsfe 2001)
 (def einfuehrungsjahr-11-punkte-saetze 2001)
 (def identitaet "def verknüpft Wert und Identität")
+(def tt-satz-gewinn-punkte 21) 
+(def tt-satz-gewinn-punkte 11) ; ab 2001
 
 ;;:atom
 (def atm (atom "Eins"))
@@ -63,21 +66,19 @@
 (defn reftest []
   (let [r1 (ref 0)                     ; test ref
         r2 (ref 100)                   ; other test ref
-        cl (atom 0)                    ; collisions in update fn
         c1 (atom 0)                    ; repetitions dosync pre alter
         c2 (atom 0)                    ; repetitions dosync post alter
-        ic (fn [x] (swap! cl inc) (inc x)) ; inc w/ collision
-        dc (fn [x] (swap! cl inc) (dec x)) ; dec w/ collision
         f  (fn [x] 
              (dosync
               (swap! c1 inc)
-              (alter r1  ic)
-              (alter r2  dc)
+              (alter r1 inc)
+              (alter r2 dec)
               (swap! c2 inc)))]
     (dotimes [i 100]
       (.start (Thread. #(f i))))
-    (Thread/sleep 1000) ; waiting
-    [@r1  @r2  @cl @c1 @c2]))
+    (Thread/sleep 1000)                 ; waiting
+    [@r1  @r2  @c1 @c2]))
+
 
 ;;:stresstest
 (defn stresstest [hmin hmax]
@@ -101,6 +102,8 @@
 (stresstest 0 10)
 (stresstest 0 30)
 (stresstest 15 30)
+
+
 
 
 

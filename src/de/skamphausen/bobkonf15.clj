@@ -11,7 +11,7 @@
 
 (def title "Clojures Implementation von STM")
 (def author "Stefan Kamphausen")
-(def description "BOB Konference, Berlin, January 2015")
+(def description "BOB Konferenz, Berlin, Januar 2015")
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -140,16 +140,17 @@
    ["Werte sind unveränderlich"
     "Intuitiv für primitive Typen wie Integer"
     "Java-Programmierer kennen das auch von Strings"
-    "In Clojure auch Listen, Vektoren, Hash-Maps"
-    "Beispiel \"minimal notwendige Anzahl Punkte, um im Tischtennis
-einen Satz zu gewinnen\""])
+    "In Clojure auch Listen, Vektoren, Hash-Maps"])
   (code :value))
 
 (defslide s-identity
   [:h2 "Identität"]
   (he/unordered-list
    ["Eine stabile, logische Entität"
-    "Kann mit einem Wert verknüpft sein"])
+    "Hat einen Namen"
+    "Kann mit einem Wert verknüpft sein"
+    "Beispiel \"minimal notwendige Anzahl Punkte, um im Tischtennis
+einen Satz zu gewinnen\""])
   (code :identity))
 
 (defslide s-state
@@ -166,8 +167,9 @@ einen Satz zu gewinnen\""])
   (he/unordered-list
    ["Persistenz: erhalte alte Versionen"
     "In Clojure sind Vektoren, Sets, Listen und Hash-Maps persistent"
-    "Manipulation -> neue Version"
-    "Naiv: Copy on Write -> Performance Charakteristik?"
+    "Manipulation erzeugt neue Version"
+    "Naiv: Copy on Write"
+    "Performance Charakteristik?"
     "Bitpartitioned Trees ..."]))
 
 (defslide s-persisttree
@@ -181,7 +183,7 @@ einen Satz zu gewinnen\""])
     "Kopiere lediglich Pfad bis zum Wurzelknoten"
     "Shared Structure"
     "Near constant time, log_32(N)"
-    "Plus Optimierungen, (Tail)"])
+    "Optimierung: Tail"])
   (he/image "img/persistent_changed_tree.png"))
 
 (defslide s-refintro
@@ -198,13 +200,15 @@ einen Satz zu gewinnen\""])
 (defslide s-atom
   [:h2 "Referenztyp Atom"]
   (he/unordered-list
-   ["Einfachster Referenztyp"
+   ["Einfachster Referenztyp, CAS"
     [:code "java.util.concurrent.atomic.AtomicReference"]
+    (list "Anlegen mit " [:code "atom"])
     "Zustand ist auch ein Wert: Neue Werte werden berechnet, nicht
-  gesetzt (CAS)"
+  gesetzt"
     (list "Berechnung mit " [:code "swap!"])
     "Update-Funktionen ohne Seiteneffekte wegen Wiederholungen"
-    (list [:code "deref"] ", Read-Syntax: " [:code "@"])])
+    (list [:code "deref"] ", Read-Syntax: " [:code "@"])
+])
   (code :atom))
 
 (defslide s-ref
@@ -243,9 +247,9 @@ einen Satz zu gewinnen\""])
     (list [:code "ThreadLocal"] ": Ein Thread nimmt nur an einer
   Transaktion teil")
     "Transaktionen auf verschiedenen Ebenen des Stacks verschmelzen"
-    (list [:code "final static AtomicLong" "Absoluter Zähler für
-  readPoints und commitPoints"])
-    "MVCC, Snapshot-Isolation"
+    (list [:code "final static AtomicLong"] " Absoluter Zähler für
+  readPoints und commitPoints")
+    "MVCC, Snapshot-Isolation, optimistisch"
     "Integriert mit Agents"]))
 
 (defslide s-transaction 
@@ -257,7 +261,9 @@ einen Satz zu gewinnen\""])
   (he/unordered-list 
    ["Nicht nur die Update Funktion wird wiederholt,
  sondern der ganze Body"
-    "Zwei Refs zum Testen, ein Atom für Kollisionen"
+    "Nicht erzwungen, Namenskonvention: !"
+    [:code "io!"]
+    "Zwei Refs zum Testen"
     "Zusätzlich zwei Atoms für Wiederholungen"
     (list "Je eines vor und nach den Aufrufen von " [:code "alter"])]))
 
